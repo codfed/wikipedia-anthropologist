@@ -10,13 +10,19 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <p>
+          I have always been interested in the human element behind Wikipedia. 
+          In October 2023 I started to play around with the Wikipedia API in some
+          Jekyll files. I got sick of building tables through javascript to display 
+          the results. This app is an experiment to see how React handles this task.
+        </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://codfed.github.io/github-pages-with-docker/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          This was the work leading up to this.
         </a>
       </header>
     </div>
