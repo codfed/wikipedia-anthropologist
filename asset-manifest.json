@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/wikipedia-anthropologist/static/css/main.f349675e.css",
-    "main.js": "/wikipedia-anthropologist/static/js/main.85836f15.js",
+    "main.js": "/wikipedia-anthropologist/static/js/main.b4ba6d41.js",
     "static/js/787.6e79f389.chunk.js": "/wikipedia-anthropologist/static/js/787.6e79f389.chunk.js",
     "index.html": "/wikipedia-anthropologist/index.html",
     "main.f349675e.css.map": "/wikipedia-anthropologist/static/css/main.f349675e.css.map",
-    "main.85836f15.js.map": "/wikipedia-anthropologist/static/js/main.85836f15.js.map",
+    "main.b4ba6d41.js.map": "/wikipedia-anthropologist/static/js/main.b4ba6d41.js.map",
     "787.6e79f389.chunk.js.map": "/wikipedia-anthropologist/static/js/787.6e79f389.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f349675e.css",
-    "static/js/main.85836f15.js"
+    "static/js/main.b4ba6d41.js"
   ]
 }
