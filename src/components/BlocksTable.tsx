@@ -97,7 +97,12 @@ const BlocksTable = ({ children }: Props) => {
   }, []);
   return (
     <div>
-      <h1>{children}</h1>
+      <h1>500 most recent user blocks</h1>
+
+      <p>
+        Behind every block is some degree of misconduct. Some of these are
+        really funny to me.
+      </p>
       <table
         className="table"
         {...getTableProps}
