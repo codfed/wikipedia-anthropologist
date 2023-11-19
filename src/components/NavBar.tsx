@@ -14,15 +14,19 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/wikipedia-anthropologist/">Home</Nav.Link>
+            <Nav.Link href="/wikipedia-anthropologist/about">About</Nav.Link>
             <NavDropdown
               title="Pages"
               id="basic-nav-dropdown"
             >
-              <NavDropdown.Item href="/edits">Edits</NavDropdown.Item>
+              <NavDropdown.Item href="/wikipedia-anthropologist/edits">
+                Edits
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/blocks">Blocks</NavDropdown.Item>
+              <NavDropdown.Item href="/wikipedia-anthropologist/blocks">
+                Blocks
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

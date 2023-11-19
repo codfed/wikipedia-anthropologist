@@ -17,22 +17,24 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route
-            path="/"
-            element={<HomePage />}
-          />
-          <Route
-            path="/blocks"
-            element={<BlocksTable>Blocks Table</BlocksTable>}
-          />
-          <Route
-            path="/edits"
-            element={<EditsTable>Edits Table</EditsTable>}
-          />
-          <Route
-            path="/about"
-            element={<AboutPage />}
-          />
+          <Route path="/wikipedia-anthropologist">
+            <Route
+              path=""
+              element={<HomePage />}
+            />
+            <Route
+              path="blocks"
+              element={<BlocksTable>Blocks Table</BlocksTable>}
+            />
+            <Route
+              path="edits"
+              element={<EditsTable>Edits Table</EditsTable>}
+            />
+            <Route
+              path="about"
+              element={<AboutPage />}
+            />
+          </Route>
         </Routes>
       </BrowserRouter>
     </Container>
