@@ -20,27 +20,25 @@ import NavBar from './components/NavBar';
 function App() {
   return (
     <Container>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route
-            path="/wikipedia-anthropologist/"
-            element={<HomePage />}
-          />
-          <Route
-            path="/wikipedia-anthropologist/blocks/:type?"
-            element={<BlocksTable />}
-          />
-          <Route
-            path="/wikipedia-anthropologist/edits"
-            element={<EditsTable>Edits Table</EditsTable>}
-          />
-          <Route
-            path="/wikipedia-anthropologist/about"
-            element={<AboutPage />}
-          />
-        </Routes>
-      </BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route
+          path="/"
+          element={<HomePage />}
+        />
+        <Route
+          path="/blocks/:type?"
+          element={<BlocksTable />}
+        />
+        <Route
+          path="/edits"
+          element={<EditsTable>Edits Table</EditsTable>}
+        />
+        <Route
+          path="/about"
+          element={<AboutPage />}
+        />
+      </Routes>
     </Container>
   );
 }
