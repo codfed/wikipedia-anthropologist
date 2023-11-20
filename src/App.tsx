@@ -3,7 +3,13 @@ import logo from './logo.svg';
 
 import Container from 'react-bootstrap/Container';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+  HashRouter,
+  Routes,
+  Route,
+  Navigate,
+  BrowserRouter,
+} from 'react-router-dom';
 
 import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
@@ -17,24 +23,22 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/wikipedia-anthropologist">
-            <Route
-              path=""
-              element={<HomePage />}
-            />
-            <Route
-              path="blocks"
-              element={<BlocksTable>Blocks Table</BlocksTable>}
-            />
-            <Route
-              path="edits"
-              element={<EditsTable>Edits Table</EditsTable>}
-            />
-            <Route
-              path="about"
-              element={<AboutPage />}
-            />
-          </Route>
+          <Route
+            path="/wikipedia-anthropologist/"
+            element={<HomePage />}
+          />
+          <Route
+            path="/wikipedia-anthropologist/blocks/:type?"
+            element={<BlocksTable />}
+          />
+          <Route
+            path="/wikipedia-anthropologist/edits"
+            element={<EditsTable>Edits Table</EditsTable>}
+          />
+          <Route
+            path="/wikipedia-anthropologist/about"
+            element={<AboutPage />}
+          />
         </Routes>
       </BrowserRouter>
     </Container>

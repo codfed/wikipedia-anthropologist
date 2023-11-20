@@ -1,8 +1,10 @@
 import React, { ReactNode, useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { useTable, Column } from 'react-table';
+import Button from './Button';
 
 interface Props {
-  children: ReactNode;
+  query_id?: number;
 }
 
 interface WikipediaBlock {
@@ -14,7 +16,8 @@ interface WikipediaBlock {
   comment: string;
 }
 
-const BlocksTable = ({ children }: Props) => {
+const BlocksTable = ({ query_id = 2 }: Props) => {
+  const params = useParams();
   const [data, setData] = useState<WikipediaBlock[]>([]);
 
   const columns = React.useMemo<Column[]>(
@@ -84,12 +87,22 @@ const BlocksTable = ({ children }: Props) => {
 
   const URL =
     'https://en.wikipedia.org/w/api.php?action=query&origin=*&list=blocks&formatversion=2&bkdir=older&bklimit=500&format=json';
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(URL);
       response.json().then((data) => {
-        console.log(data);
-        setData(data.query.blocks);
+        let filteredData: WikipediaBlock[] = [];
+        const filter = params.type ?? 'default'; // Provide a default value for params.type
+        if (filter != 'default') {
+          filteredData = data.query.blocks.filter((block: WikipediaBlock) =>
+            block.reason.toLowerCase().includes(filter.toLowerCase())
+          );
+        } else {
+          filteredData = data.query.blocks;
+        }
+
+        setData(filteredData);
       });
     };
 
@@ -97,12 +110,41 @@ const BlocksTable = ({ children }: Props) => {
   }, []);
   return (
     <div>
-      <h1>500 most recent user blocks</h1>
+      <h1>Blocked users {params.type ? ' filtered by ' + params.type : ''}</h1>
 
-      <p>
-        Behind every block is some degree of misconduct. Some of these are
-        really funny to me.
-      </p>
+      <Button
+        color="primary"
+        onClick={() =>
+          (window.location.href = '/wikipedia-anthropologist/blocks')
+        }
+      >
+        All
+      </Button>
+      <Button
+        color="primary"
+        onClick={() =>
+          (window.location.href = '/wikipedia-anthropologist/blocks/vandalism')
+        }
+      >
+        Vandalism
+      </Button>
+      <Button
+        color="primary"
+        onClick={() =>
+          (window.location.href = '/wikipedia-anthropologist/blocks/promotion')
+        }
+      >
+        Promotion
+      </Button>
+      <Button
+        color="primary"
+        onClick={() =>
+          (window.location.href = '/wikipedia-anthropologist/blocks/puppet')
+        }
+      >
+        Sock Puppet
+      </Button>
+
       <table
         className="table"
         {...getTableProps}

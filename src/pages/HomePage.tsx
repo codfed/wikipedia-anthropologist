@@ -12,6 +12,8 @@ export default function HomePage() {
         who are motivated by their own understanding of comedy.
       </p>
 
+      <h3>Blocks</h3>
+
       <h5>Types of edits worth looking into</h5>
       <ul>
         <li>Stock market manipulation</li>
@@ -19,6 +21,13 @@ export default function HomePage() {
         <li>Political propaganda</li>
         <li>Accepted bias</li>
         <li>Trolling</li>
+        <li>Image gallery search</li>
+        <li>User profile page with data visualization</li>
+      </ul>
+
+      <h5>Pages to create</h5>
+      <ul>
+        <li>User profile page with data visualization</li>
       </ul>
 
       <table className="table table-bordered w-auto">
