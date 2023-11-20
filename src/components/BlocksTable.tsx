@@ -115,7 +115,7 @@ const BlocksTable = ({ query_id = 2 }: Props) => {
       <Button
         color="primary"
         onClick={() =>
-          (window.location.href = '/wikipedia-anthropologist/blocks')
+          (window.location.href = '/wikipedia-anthropologist/#/blocks')
         }
       >
         All
@@ -123,7 +123,8 @@ const BlocksTable = ({ query_id = 2 }: Props) => {
       <Button
         color="primary"
         onClick={() =>
-          (window.location.href = '/wikipedia-anthropologist/blocks/vandalism')
+          (window.location.href =
+            '/wikipedia-anthropologist/#/blocks/vandalism')
         }
       >
         Vandalism
@@ -131,7 +132,8 @@ const BlocksTable = ({ query_id = 2 }: Props) => {
       <Button
         color="primary"
         onClick={() =>
-          (window.location.href = '/wikipedia-anthropologist/blocks/promotion')
+          (window.location.href =
+            '/wikipedia-anthropologist/#/blocks/promotion')
         }
       >
         Promotion
@@ -139,7 +141,7 @@ const BlocksTable = ({ query_id = 2 }: Props) => {
       <Button
         color="primary"
         onClick={() =>
-          (window.location.href = '/wikipedia-anthropologist/blocks/puppet')
+          (window.location.href = '/wikipedia-anthropologist/#/blocks/puppet')
         }
       >
         Sock Puppet

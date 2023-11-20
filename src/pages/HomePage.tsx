@@ -29,7 +29,6 @@ export default function HomePage() {
       <ul>
         <li>User profile page with data visualization</li>
         <li>Figure out routes</li>
-        <li>Hash router is up</li>
       </ul>
 
       <table className="table table-bordered w-auto">

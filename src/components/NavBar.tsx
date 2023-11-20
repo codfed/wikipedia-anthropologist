@@ -15,16 +15,16 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/wikipedia-anthropologist/">Home</Nav.Link>
-            <Nav.Link href="/wikipedia-anthropologist/about">About</Nav.Link>
+            <Nav.Link href="/wikipedia-anthropologist/#/about">About</Nav.Link>
             <NavDropdown
               title="Pages"
               id="basic-nav-dropdown"
             >
-              <NavDropdown.Item href="/wikipedia-anthropologist/edits">
+              <NavDropdown.Item href="/wikipedia-anthropologist/#/edits">
                 Edits
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/wikipedia-anthropologist/blocks">
+              <NavDropdown.Item href="/wikipedia-anthropologist/#/blocks">
                 Blocks
               </NavDropdown.Item>
             </NavDropdown>
