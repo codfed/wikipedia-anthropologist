@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Image from 'react-bootstrap/Image';
 
 function NavBar() {
   return (
@@ -10,11 +11,19 @@ function NavBar() {
       className="bg-body-tertiary"
     >
       <Container>
-        <Navbar.Brand href="#home">Wikipedia Anthropologist</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          <Image
+            src="/wikipedia-anthropologist/images/mascot1.png"
+            width={40}
+            rounded
+          ></Image>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/wikipedia-anthropologist/">Home</Nav.Link>
+            <Nav.Link href="/wikipedia-anthropologist/">
+              Wikipedia Anthropologist
+            </Nav.Link>
             <Nav.Link href="/wikipedia-anthropologist/#/about">About</Nav.Link>
             <NavDropdown
               title="Pages"
