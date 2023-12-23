@@ -4,6 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'react-bootstrap/Image';
 
+import mascot1 from '../images/mascot1.png';
+
 function NavBar() {
   return (
     <Navbar
@@ -13,7 +15,7 @@ function NavBar() {
       <Container>
         <Navbar.Brand href="#home">
           <Image
-            src="/wikipedia-anthropologist/images/mascot1.png"
+            src={mascot1}
             width={40}
             rounded
           ></Image>
