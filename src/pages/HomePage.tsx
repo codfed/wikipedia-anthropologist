@@ -2,18 +2,19 @@ export default function HomePage() {
   return (
     <>
       <h3>Wikipedia is the World's quick-reference guide</h3>
-
       <p>
         Wikipedia is maintained by a very diverse group of volunteers. Some are
         passionate about subjects and want to not only share their knowledge,
-        but also protect the curious public from misinformation. The word
-        'volunteer' hints at altruism, but there are also financially driven
-        editors. Others are politically motivated. Then... some are just trolls
-        who are motivated by their own understanding of comedy.
+        but also protect the curious public from misinformation. The majority of
+        editors are motivated purely by passion for a subject. Others may
+        contribute for financial or political reasons. Then... some are just
+        trolls who are motivated by their own understanding of comedy.
       </p>
-
+      [Autoblocked](Wikipedia:Autoblock)
+      <a href="https://en.wikipedia.org/wiki/Wikipedia:Autoblock">
+        AutoBlocked
+      </a>
       <h3>Blocks</h3>
-
       <h5>Types of edits worth looking into</h5>
       <ul>
         <li>Stock market manipulation</li>
@@ -24,13 +25,11 @@ export default function HomePage() {
         <li>Image gallery search</li>
         <li>User profile page with data visualization</li>
       </ul>
-
       <h5>Pages to create</h5>
       <ul>
         <li>User profile page with data visualization</li>
         <li>Figure out routes</li>
       </ul>
-
       <table className="table table-bordered w-auto">
         <thead>
           <tr>

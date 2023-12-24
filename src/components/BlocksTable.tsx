@@ -2,6 +2,7 @@ import React, { ReactNode, useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useTable, Column } from 'react-table';
 import Button from './Button';
+import Parser from './Parser';
 
 interface Props {
   query_id?: number;
@@ -56,6 +57,7 @@ const BlocksTable = ({ query_id = 2 }: Props) => {
       {
         Header: 'Reason',
         accessor: 'reason',
+        Cell: (props) => <Parser text={props.value} />,
       },
       {
         Header: 'Expiry',
