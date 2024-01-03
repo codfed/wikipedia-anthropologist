@@ -50,3 +50,30 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 # wikipedia-anthropologist
+
+# todo list:
+
+Types of edits worth looking into<
+-Stock market manipulation
+-SEO manipulation
+-Political propaganda
+-Accepted bias
+-Trolling
+-Image gallery search
+
+User profile page with data visualization
+
+- stats:
+  -- Pages/categories they specialize in
+
+- profile pic?
+- Sock puppets
+- contributions
+  -- show a bit of the contribution
+  -- link to diff
+
+Explore
+-search for subject
+-make an analytics page for single wikipedia pages
+--talk stats
+--edits stats
