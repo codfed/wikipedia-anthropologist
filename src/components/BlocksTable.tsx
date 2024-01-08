@@ -2,7 +2,9 @@ import React, { ReactNode, useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useTable, Column } from 'react-table';
 import Button from './Button';
-import Parser from './Parser';
+import Parser from './helpers/Parser';
+import Date from './helpers/Date';
+import UserLink from './UserLink';
 
 interface Props {
   query_id?: number;
@@ -31,26 +33,12 @@ const BlocksTable = ({ query_id = 2 }: Props) => {
         Header: 'User',
         accessor: 'user',
         Cell: (props) => (
-          <div>
-            <a
-              href={'https://en.wikipedia.org/wiki/User:' + props.value}
-              target="blank"
-            >
-              {' '}
-              {props.value}
-            </a>
-            <br />
-            <a
-              href={
-                'https://en.wikipedia.org/wiki/Special:Contributions/' +
-                props.value
-              }
-              target="blank"
-            >
-              {' '}
-              {'(contribs)'}
-            </a>
-          </div>
+          <>
+            <UserLink
+              username={props.value}
+              id={props.row.values['userid']}
+            />
+          </>
         ),
       },
 
@@ -62,6 +50,7 @@ const BlocksTable = ({ query_id = 2 }: Props) => {
       {
         Header: 'Expiry',
         accessor: 'expiry',
+        Cell: (props) => <Date dateString={props.value} />,
       },
       {
         Header: 'Comment',
@@ -71,13 +60,10 @@ const BlocksTable = ({ query_id = 2 }: Props) => {
         Header: 'Blocked By',
         accessor: 'by',
         Cell: (props) => (
-          <a
-            href={'https://en.wikipedia.org/wiki/User:' + props.value}
-            target="blank"
-          >
-            {' '}
-            {props.value}
-          </a>
+          <UserLink
+            username={props.value}
+            id={props.row.values['byid']}
+          />
         ),
       },
     ],
@@ -88,9 +74,10 @@ const BlocksTable = ({ query_id = 2 }: Props) => {
     useTable({ columns, data });
 
   const URL =
-    'https://en.wikipedia.org/w/api.php?action=query&origin=*&list=blocks&formatversion=2&bkdir=older&bklimit=500&format=json';
+    'https://en.wikipedia.org/w/api.php?action=query&origin=*&list=blocks&bkprop=id|user|userid|by|byid|timestamp|expiry|reason|flags|restrictions&formatversion=2&bkdir=older&bklimit=500&format=json';
 
   useEffect(() => {
+    document.title = `Blocks`;
     const fetchData = async () => {
       const response = await fetch(URL);
       response.json().then((data) => {
@@ -115,36 +102,38 @@ const BlocksTable = ({ query_id = 2 }: Props) => {
       <h1>Blocked users {params.type ? ' filtered by ' + params.type : ''}</h1>
 
       <Button
-        color="primary"
-        onClick={() =>
-          (window.location.href = '/wikipedia-anthropologist/#/blocks')
-        }
+        color="info"
+        onClick={() => {
+          window.location.href = '/wikipedia-anthropologist/#/blocks';
+          window.location.reload();
+        }}
       >
         All
       </Button>
       <Button
-        color="primary"
-        onClick={() =>
-          (window.location.href =
-            '/wikipedia-anthropologist/#/blocks/vandalism')
-        }
+        color="info"
+        onClick={() => {
+          window.location.href = '/wikipedia-anthropologist/#/blocks/vandalism';
+          window.location.reload();
+        }}
       >
         Vandalism
       </Button>
       <Button
-        color="primary"
-        onClick={() =>
-          (window.location.href =
-            '/wikipedia-anthropologist/#/blocks/promotion')
-        }
+        color="info"
+        onClick={() => {
+          window.location.href = '/wikipedia-anthropologist/#/blocks/promotion';
+          window.location.reload();
+        }}
       >
         Promotion
       </Button>
       <Button
-        color="primary"
-        onClick={() =>
-          (window.location.href = '/wikipedia-anthropologist/#/blocks/puppet')
-        }
+        color="info"
+        onClick={() => {
+          window.location.href = '/wikipedia-anthropologist/#/blocks/puppet';
+          window.location.reload();
+        }}
       >
         Sock Puppet
       </Button>
@@ -154,21 +143,45 @@ const BlocksTable = ({ query_id = 2 }: Props) => {
         {...getTableProps}
       >
         <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps}>
+          {headerGroups.map((headerGroup, headerIndex) => (
+            <tr
+              key={`${headerIndex}-${headerGroup.id}`}
+              {...headerGroup.getHeaderGroupProps}
+            >
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps}>{column.render('Header')}</th>
+                <th
+                  key={column.id}
+                  {...column.getHeaderProps}
+                  style={{
+                    width: '600px',
+                  }}
+                >
+                  {column.render('Header')}
+                </th>
               ))}
             </tr>
           ))}
         </thead>
         <tbody>
-          {rows.map((row) => {
+          {rows.map((row, rowIndex) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps}>
+              <tr
+                key={row.id}
+                {...row.getRowProps}
+              >
                 {row.cells.map((cell) => {
-                  return <td {...cell.getCellProps}>{cell.render('Cell')}</td>;
+                  return (
+                    <td
+                      key={`${rowIndex}-${cell.column.id}`}
+                      {...cell.getCellProps}
+                      style={{
+                        width: '600px',
+                      }}
+                    >
+                      {cell.render('Cell')}
+                    </td>
+                  );
                 })}
               </tr>
             );

@@ -77,3 +77,12 @@ Explore
 -make an analytics page for single wikipedia pages
 --talk stats
 --edits stats
+
+BUGS:
+
+CONTRIBUTIONS
+-wikipedia-anthropologist/#/user/Sbb1413
+-- all contributions to this user's own talk page give the same result.. the wikipedia link to the diffs are correct but my own modal is messed up.
+
+BLOCKED USER TABLE
+-buttons are not refreshing page. Only updating the url.

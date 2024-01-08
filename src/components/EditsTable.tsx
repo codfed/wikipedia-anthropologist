@@ -1,5 +1,6 @@
 import React, { ReactNode, useState, useEffect } from 'react';
 import { useTable, Column } from 'react-table';
+import UserLink from './UserLink';
 
 interface Props {
   children: ReactNode;
@@ -75,13 +76,12 @@ const EditsTable = ({ children }: Props) => {
         Header: 'User',
         accessor: 'user',
         Cell: (props) => (
-          <a
-            href={'https://en.wikipedia.org/wiki/User:' + props.value}
-            target="blank"
-          >
-            {' '}
-            {props.value}
-          </a>
+          <>
+            <UserLink
+              username={props.value}
+              id={props.row.values['userid']}
+            />
+          </>
         ),
       },
       {
@@ -96,8 +96,9 @@ const EditsTable = ({ children }: Props) => {
     useTable({ columns, data });
 
   const URL =
-    'https://en.wikipedia.org/w/api.php?action=query&origin=*&rctype=edit&rcprop=title|ids|rctype|comment|user|tags|flags&list=recentchanges&format=json';
+    'https://en.wikipedia.org/w/api.php?action=query&origin=*&rctype=edit&rcprop=title|ids|rctype|comment|user|tags|flags&list=recentchanges&rclimit=500&format=json';
   useEffect(() => {
+    document.title = `Edits`;
     const fetchData = async () => {
       const response = await fetch(URL);
       response.json().then((data) => {

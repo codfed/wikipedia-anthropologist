@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import UserLink from '../UserLink';
 
 interface ParserProps {
   text: string;
@@ -18,11 +19,11 @@ const parseAndRenderText = (inputText: string): JSX.Element => {
 
   const parsedText = inputText.replace(linkRegex, replaceLinks);
 
-  return <p dangerouslySetInnerHTML={{ __html: parsedText }} />;
+  return <span dangerouslySetInnerHTML={{ __html: parsedText }} />;
 };
 
 const Parser: React.FC<ParserProps> = ({ text }) => {
-  return <div>{parseAndRenderText(text)}</div>;
+  return <>{parseAndRenderText(text)}</>;
 };
 
 export default Parser;

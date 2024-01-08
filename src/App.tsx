@@ -13,6 +13,7 @@ import {
 
 import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
+import User from './pages/User';
 import BlocksTable from './components/BlocksTable';
 import EditsTable from './components/EditsTable';
 import NavBar from './components/NavBar';
@@ -32,11 +33,15 @@ function App() {
         />
         <Route
           path="/edits"
-          element={<EditsTable>Edits Table</EditsTable>}
+          element={<EditsTable>Most Recent Edits</EditsTable>}
         />
         <Route
           path="/about"
           element={<AboutPage />}
+        />
+        <Route
+          path="/user/:username"
+          element={<User />}
         />
       </Routes>
     </Container>
