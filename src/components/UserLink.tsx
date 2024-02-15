@@ -2,7 +2,7 @@ import React from 'react';
 
 interface UserLinkProps {
   username: string;
-  id: number;
+  id?: number;
   includeWALink?: boolean;
 }
 

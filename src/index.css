@@ -33,6 +33,13 @@ code {
   font-size: large;
 }
 
+div.noteable-description {
+  width: 300px;
+}
+div.noteable-description > img {
+  max-width: 100%;
+}
+
 /* wikipedia diff table styling */
 
 thead, tbody, tfoot, tr, td, th {

@@ -1,4 +1,5 @@
 import RevisionDifference from '../components/RevisionDifference';
+import UserLink from '../components/UserLink';
 
 export default function HomePage() {
   return (
@@ -10,7 +11,7 @@ export default function HomePage() {
         share their knowledge, but also protect the public from misinformation.
         The majority of editors are motivated purely by passion for a subject.
         Others may contribute for financial or political reasons. Then... some
-        are just trolls who are motivated by their own understanding of comedy.
+        are just trolls who are motivated by their own brand of comedy.
       </p>
 
       <h4>Explore with me</h4>
@@ -51,25 +52,29 @@ export default function HomePage() {
         </tbody>
       </table>
 
-      <h3>Blocks</h3>
-      <a href="#/blocks">View the 500 most recent Blocks</a>
+      <h3>Noteable blocks</h3>
 
-      <h5>Pages to create</h5>
-      <ul>
-        <li>User profile page with data visualization</li>
-        <li>Figure out routes</li>
-      </ul>
       <table className="table table-bordered w-auto">
         <thead>
           <tr>
-            <th scope="col">Stat</th>
-            <th scope="col">Value</th>
+            <th scope="col">Username</th>
+            <th scope="col">Vandalism Severity</th>
+            <th scope="col">Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Number of articles</td>
-            <td>6,341,000</td>
+            <td>
+              <UserLink username={'Woodrow Wilson 15'} />
+            </td>
+            <td>Gentle Mischief</td>
+            <td>
+              <div className="noteable-description">
+                Uploaded pictures of his friends on random pages including the
+                Pacific Northwest Exhibit A:
+                <img src="images/WoodrowWilson15Contrib.png"></img>
+              </div>
+            </td>
           </tr>
           <tr>
             <td>New articles per day</td>
@@ -86,10 +91,6 @@ export default function HomePage() {
           </tr>
         </tbody>
       </table>
-      <RevisionDifference
-        title="List of WWE Hardcore Champions"
-        fromrev="1192685619"
-      />
     </>
   );
 }
